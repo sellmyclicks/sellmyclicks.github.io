@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SMC</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">  -->
+
+
+<style type="text/css">
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+.gallery {
+  background: #EEE;
+}
+
+.gallery-cell {
+  width: 80%;
+  height: 600px;
+  margin-right: 10px;
+  background: #8C8;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  /*content: counter(gallery-cell);*/
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+.card1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.card7 {
+
+  
+  background-color: transparent;
+  font-family: arial;
+}
+.card3 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  font-family: arial;
+}
+
+.card3:hover{
+  box-shadow: 1px 1px 10px ;
+}
+.card2{
+  width: 23%;
+  height: 150px;
+  margin-left: 5px;
+   box-shadow: 1px 1px 10px;
+}
+
+.grd{
+  margin-top: 20px;
+  padding-left:   0px;
+  width: 100%;
+  /* For browsers that do not support gradients */
+  
+  border-radius: 5px;
+   margin-bottom: 20px;
+   box-shadow: 1px 1px 10px;
+}
+.hoverme{
+  background-image: url('images/lion1.jpg');
+  width: 100%;
+}
+
+.hoverme:hover{
+  background-image: url('images/lion.jpg');
+    width: 100%;
+  animation: alternate-reverse;
+
+}
+
+
+
+
+
+
+
+
+/*! Flickity v1.0.0
+http://flickity.metafizzy.co
+---------------------------------------------- */
+
+.flickity-enabled {
+  position: relative;
+}
+
+.flickity-enabled:focus { outline: none; }
+
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* draggable */
+
+.flickity-enabled.is-draggable {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* ---- previous/next buttons ---- */
+
+.flickity-prev-next-button {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  background: hsla(0, 0%, 100%, 0.75);
+  cursor: pointer;
+  /* vertically center */
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.flickity-prev-next-button:hover { background: white; }
+
+.flickity-prev-next-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #09F;
+}
+
+.flickity-prev-next-button:active {
+  filter: alpha(opacity=60); /* IE8 */
+  opacity: 0.6;
+}
+
+.flickity-prev-next-button.previous { left: 10px; }
+.flickity-prev-next-button.next { right: 10px; }
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+.flickity-prev-next-button:disabled {
+  filter: alpha(opacity=30); /* IE8 */
+  opacity: 0.3;
+  cursor: auto;
+}
+
+.flickity-prev-next-button svg {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+.flickity-prev-next-button .arrow {
+  fill: #333;
+}
+
+/* color & size if no SVG - IE8 and Android 2.3 */
+.flickity-prev-next-button.no-svg {
+  color: #333;
+  font-size: 26px;
+}
+
+/* ---- page dots ---- */
+
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots { direction: rtl; }
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: #333;
+  border-radius: 50%;
+  filter: alpha(opacity=25); /* IE8 */
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  filter: alpha(opacity=100); /* IE8 */
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+</head>
+<body>
+<!-- menu -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="margin: 0px; padding: 0px;  ">
+
+
+
+
+
+ <a class="navbar-brand" href="#" ></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 text-white" style="margin-left: 20px;">
+     
+      <li class="nav-item ">
+        <a class="nav-link text-white" href="#">Images</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link text-white" href="#">Videos</a>
+      </li>
+       <li class="nav-item ">
+        <a class="nav-link text-white" href="#">Templates</a>
+      </li>
+       <li class="nav-item ">
+        <a class="nav-link text-white" href="#">Safebox</a>
+      </li>
+       <li class="nav-item ">
+        <a class="nav-link text-white" href="#">Packages</a>
+      </li>
+       <li class="nav-item ">
+        <a class="nav-link text-white" href="#">Blog</a>
+      </li>
+    </ul> 
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+    <ul class="navbar-nav  mt-2 mt-lg-0 ">
+ <li class="nav-item">
+        <a class="nav-link text-white" href="#"><i class="fas fa-cloud-upload-alt"></i> Sell</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link text-white" href="#"><i class="fas fa-dollar-sign"></i> Pricing</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link text-white" href="#">Sign-in</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link text-white" href="#">Sign-up</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<br><br>
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: white; box-shadow: 1px 1px 10px; margin-top: 45px; padding: 0px;">
+  <a class="navbar-brand" href="#" style="text-decoration: none; color: black; margin-left: 30px;"><h3><span style="color: gold;">$</span>ELL MY CLICKS</h3></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    
+
+  <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <ul class="navbar-nav" style="margin: 0px; padding: 0px; float: right;">
+                      <span class="input-group-text" style="margin: 0px; padding: 0px;">
+  <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+      Images
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>
+    </span>
+</ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search term...">
+               <span class="input-group-text" >
+                    <i class="fas fa-camera"></i>
+                </span>
+            </div>
+
+
+
+            <ul class="navbar-nav" style="margin: 0px; padding: 0px;">
+                      <span class="input-group-text" style="margin-left: 0px; margin-right: 10px; padding: 0px; background-color: transparent;">
+  <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+      Images
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>
+    </span>
+</ul>
+
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <br><br>
+  <!--     <p><code>wrapAround: true</code></p> -->
+
+<!-- Flickity HTML init -->
+<div class="gallery js-flickity"
+  data-flickity-options='{ "wrapAround": true }'>
+  <div class="gallery-cell" style="background-image: url('Images/a1.jpg'); width: 80%;">
+
+
+
+    <div class="card card1 text-center" style=" margin-top: 50px; margin-left: 20px;  margin-right: 40px; float: right; background-color: white;">
+  <div class="row" style="margin: 30px;">
+  <img src="images/man.jpg" alt="John" style="width:30%; height: 50%; border-radius: 50%; border: 1px solid;">
+  <h4 style="margin-left: 10px; margin-top: 8%; ">John Doe</h4>
+  
+</div>
+<h5>Lorem Ipsum</h5>
+  <p class="title" style="color: gray; margin: 30px; font-size: 13px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+  
+ <h4 style="color: blue;">Downloaded 55 times</h4>
+ <p><button style="border-radius: 20px; background-color: #09e833; color: black;" class="button"><a href="#">Buy @ 200$</a></button></p>
+ <div class="row text-center" style="margin-left: 30px;"> 
+<p > <i class="fas fa-heart fa-2x" style="margin-left: 30px; color: red;"></i><h4>5k</h4><i class="fas fa-share fa-2x" style="margin-left: 30px;"></i> <i class="fas fa-info-circle fa-2x" style="margin-left: 30px;"></i></p>
+
+<a href="#" style="float: right; margin-right: 10px;"><h5>View more</h5></a>
+</div>
+</div>
+
+  </div>
+  <div class="gallery-cell" style="background-image: url('Images/a2.jpeg');"> </div>
+  <div class="gallery-cell" style="background-image: url('Images/a3.jpg');"></div>
+  <div class="gallery-cell" style="background-image: url('Images/a1.jpg');"></div>
+  <div class="gallery-cell" style="background-image: url('Images/a2.jpeg');"></div>
+</div>
+  </div>
+
+
+
+
+
+<!-- section 2 -->
+
+
+
+<div class="col-md-12 text-center" style="background-color: #f8f8f0;">
+              <h5>Earn by $elling your clicks! </h5>
+              <h4>upload your picture and sell them online. </h4>
+              <h4>Get your own dashboard to track your earnings.</h4><br>
+              <button type="button" class="btn btn-success" style="background-color: #09e833; border-radius: 30px; padding-left: 30px; padding-right: 30px;"><h5>Start earning today</h5></button>
+            </div>
+<!--             <div class="col-md-2" style="background-color: #f8f8f0;"></div>
+ -->
+
+<div class="container" >
+  <div class="row">
+             <div class="col-md-12 grd" >
+                    <h3 class="text-center" style=" color: black;">Contributor Dashboard </h3><br>     <br> 
+      <div class="row">
+      <div class="col-md-8">
+      <div class="row" style="margin-left: 30px;">
+      <div class="card card2 text-center">
+        <div class="card" style="background-color: #f2ba34; width: 62%; height: 50%; position: relative; left: 10px; top:-20px;" ><i class="fas fa-arrow-up fa-2x" style="margin-left: 39%; margin-top: 19%; color: white;"></i></div>
+        <p>Total uploads<br> 150</p>
+
+      </div>
+      <div class="card card2 text-center">
+        <div class="card" style="background-color: #e02128; width: 62%; height: 50%; position: relative; left: 10px; top:-20px;"><i class="fas fa-chevron-up fa-2x" style="margin-left: 39%; margin-top: 19%; color: white;"></i></div>
+         <p>Total uploads<br> 150</p>
+      </div>
+      <div class="card card2 text-center">
+        <div class="card" style="background-color: #00bc00; width: 62%; height: 50%; position: relative; left: 10px; top:-20px;"><i class="fas fa-dollar-sign fa-2x" style="margin-left: 40%; margin-top: 19%; color: white;"></i></div>
+         <p>Total uploads<br> 150</p>
+      </div>
+      <div class="card card2 text-center">
+        <div class="card" style="background-color: #00bdae; width: 62%; height: 50%; position: relative; left: 10px; top:-20px;"><i class="fas fa-redo fa-2x" style="margin-left: 37%; margin-top: 19%; color: white;"></i></div>
+         <p>Total uploads<br> 150</p>
+      </div>
+    </div>
+    <div class="row" style="margin-left: 50px;">
+      <img src="images/u.jpg" style="width: 45%; margin-top: 20px; height: 70%;">
+      
+      <img src="images/upload.jpg"  style="width: 45%; margin-top: 20px; height: 70%; margin-left: 5px;">
+    </div>
+    <div class="row text-white" >
+      <p style="margin-left: 5%;">Upload Engagement </p>
+
+      <p style="margin-left: 28%;">Earning stats</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card1 text-center" style=" margin-bottom: 70px; background-color: white; margin-left: -15px;">
+  <div class="row text-center" style="margin-top: 20px;">
+  <h4 class="text-center" style="margin-left: 22%; margin-top: 15px;"><b>EARNING STAT</b></h4>
+
+  
+</div><br><br>
+  <p class="title">Life time earning :500$</p>
+
+  <p class="title">Last month earning :20$</p>
+
+  <p class="title">Current available credits :2</p><br>
+
+<h4>$430</h4><br>
+ 
+ <p><button style="border-radius: 20px; background-color: black; color: yellow;" class="btn btn-primary ">CHECK OUT</button></p>
+
+  </div>
+</div>
+</div>
+            </div>
+           
+</div>
+</div>
+
+            <!-- end section 2 -->
+
+
+            <!-- section 3 -->
+             <div class="col-md-12">
+
+<!--Carousel Wrapper-->
+<div class="container-fluid hoverme" style="height: 100%; width: 100%;"  >
+  <img src="" style="width: 100%;">
+<div class="card card7 " style="float: left; margin: 70px;" >
+    <h3 style="font-size: 7rem;">Color <br>Grading</h3>
+  <h4 style="color: #26e5cd;">Starting @ 20$</h4>
+  <button style="background-color: #26e5cd; padding: 9px; width: 40%;" class=" btn-primary btn-sm text-center">Hover to see original</button><br>
+</div>
+
+</div>
+  </div>
+
+  <!-- end section 3 -->
+
+
+
+  <!-- section 4 -->
+    <div class="col-md-6" >
+                              <img src="images/Group 32.png" style="width: 100%;">
+                              
+                            </div>
+                            <div class="col-md-6 text-left" style="background-image: url('images/Group-32bg.png'); margin: 0px; padding: 0px;"><br><br><br>
+                              <h3>Get your own private safe</h3>
+                              <h1>Your Images to you only.<br>Get your personal link share<br> with people that matter! </h1><br>
+                              <button type="button" class="btn btn-primary" style="border-radius: 30px; padding-left: 30px; padding-right: 30px;"><h5>Get your safebox today!</h5></button>
+                            </div>
+
+
+  <!-- end section 4 -->
+
+<!-- section 5 -->
+                              <div class="col-md-6" style="background-color: #eef3f7;"><br><br>
+                              <img src="images/e2.png" style="width: 70%; padding-left: 50px;">
+                            </div>
+
+                            <div class="col-md-6" style="background-color: #eef3f7; "><br><br><br><br><br>
+                              <h2>Get our app!</h2>
+                              <h2 style="font-size: 3rem;">Find all your images in one place with our app</h2>
+                              <div class="row">
+                                
+                                <a href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><img src="images/download.png" style="margin-left: 16px; padding-top: 15px;"></a>
+                                <a href="http://playstore.com/"><img src="images/google-play-store-logo1.png"></a>
+                              
+                              </div>
+                            </div>
+<!-- end section 5 -->
+
+<!-- section 6 -->
+                            <div class="col-md-6 text-left" style="background-image: url('images/framebg1.jpg'); margin: 0px; padding: 0px;"><br><br><br>
+                              <h3 style="margin-left: 80px;">Get your own private safe</h3>
+                              <h1 style="margin-left: 80px;">Your Images to you only.<br>Get your personal link share<br> with people that matter! </h1><br>
+                              <button type="button" class="btn btn-primary" style="border-radius: 30px; padding-left: 30px; padding-right: 30px; margin-left: 80px;"><h5 style="">Get your safebox today!</h5></button>
+                            </div><br><br><br><br><br><br>
+                            <div class="col-md-6" > <br>
+                              <img src="images/frame.jpeg" style="width: 100%;">
+                              
+                            </div>
+
+                            <!-- end section 6 -->
+
+<!-- section 7 -->
+                                <div class="col-md-6" style="padding-left: 90px; background-color: #ffd0c7;"><br><br><br><br><br><br>
+                              <h3>
+                                We are constantly sharing our knowledge
+                              </h3>                             
+                              <h2>Subscribe to our Newsletter</h2><br>
+                                <div class="form-group" >
+        <input type="text" class="form-control" placeholder="Enter your email address" name="search" style="border-radius: 30px; padding: 10px;">
+      </div>
+      <button type="button" class="btn btn-danger" style="background-color: #ed0422; padding-left: 50px; padding-right: 50px; border-radius: 30px;"><h4>Subscribe</h4></button>
+                            </div>
+                            <div class="col-md-6" style="background-color: #ffd0c7;">
+                              <img src="images/Gmail_Icon.png" style="width: 85%;">
+
+                            </div>
+
+                            <!-- end   section 7 -->
+
+
+
+
+
+  <footer>
+    <div cass="container"><br>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+        <div class="row">
+        <div class="col-md-3">
+          <h3>Menu 1</h3>
+          <ul>
+            <li>Home</li>
+
+            <li>About</li>
+
+            <li>Services</li>
+
+            <li>Blog</li>
+
+            <li>Contact</li>
+          </ul>
+
+        </div>
+        <div class="col-md-3">
+          <h3>Menu 2</h3>
+          <ul>
+            <li>Home</li>
+
+            <li>Services</li>
+
+            <li>About</li>
+
+          </ul> 
+
+        </div>
+        <div class="col-md-3">
+          <h3>About Us</h3>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+
+        </div>
+        <div class="col-md-3">
+          <h3>Follow Us</h3>
+          <i class="fab fa-facebook-f fa-2x" style="padding-left: 5px;"></i><i class="fab fa-twitter fa-2x" style="padding-left: 5px;"></i><i class="fab fa-google-plus-g fa-2x" style="padding-left: 5px;"></i><i class="fab fa-instagram fa-2x" style="padding-left: 5px;"></i>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+</div><br>
+<h6 class="text-center">&copy; Copyrights Reserved.</h6>
+
+    </div>
+</footer>
+</div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
